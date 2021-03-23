@@ -7,20 +7,29 @@ output: github_document
 
 ## Abstract
 
-The Palmer Long-Term Ecological Research (LTER) study area is an area west of Antarctica. It is one of the three existing research facilities that the United States has to analyze Antarctic marine ecosystems. One of the organisms investigated by the biologists in this facility is the penguin. Observations of the Chinstrap, Adélie, and Gentoo penguins have been recorded on three islands with various measurements in the size, length, region, sex, stage, etc. The health of penguins is often determined by their size and if they can reproduce efficiently. It is for this reason that I want to determine if there is a significant difference in the size of the penguin species and if they have full clutch sizes. I will use exploratory data analysis to determine this. I plan to compare each species of penguins to the clutch completion recorder for each species. I will then determine the proportion of how many pengins had their clutch completed for each species. With this data analysis, I hope draw conclusions to if there is a link between species of the penguins and how well they can produce a full clutch size.   
+The Palmer Long-Term Ecological Research (LTER) study area is an area west of Antarctica. It is one of the three existing research facilities that the United States has to analyze Antarctic marine ecosystems. One of the organisms investigated by the biologists in this facility is the penguin. Observations of the Chinstrap, Adélie, and Gentoo penguins have been recorded on three islands with various measurements in the size, length, region, sex, stage, etc. The health of penguins is often determined by their size and if they can reproduce efficiently. It is for this reason that I want to determine if there is a significant difference in the size of the penguin species and if they have full clutch sizes. I will use exploratory data analysis to determine this. I plan to compare each species of penguins and the percentage at which they completed their clutch. With this data analysis, I intend to draw conclusions if there is a correlation between species of the penguins and how well they can produce a full clutch size.   
 
 ## Introduction
 
-The Palmer Long-Term Ecological Research (LTER) study area is an area west of Antarctica. It is one of the three existing research facilities that the United States has in order to analyze Antarctic marine ecosystems. These Antarctic marine ecosystems include sea ice habitats, oceanography, and bird nesting sites. One of the birds that were examined were the antarctic penguins found on three islands. The three species of penguins that were examined were the Adelie, Gentoo, and Chinstrap penguins. Different statistics of these penguins were taken for determination of age, size, island, sex, reproduction, and isotope concentration. Each of these statistics could be pulled from their website to be analyzed.      
+The Palmer Long-Term Ecological Research (LTER) study area is an area west of Antarctica. It is one of the three existing research facilities that the United States has in order to analyze Antarctic marine ecosystems. These Antarctic marine ecosystems include sea ice habitats, oceanography, and bird nesting sites. One of the birds that were examined were the antarctic penguins found on three islands. The three species of penguins that were examined were the Adelie, Gentoo, and Chinstrap penguins. Different statistics of these penguins were taken for determination of age, size, island, sex, reproduction, and isotope concentration. Each of these statistics could be pulled from their website to be analyzed. Of the most interest to most scientists is the result of how well a species can reproduce. The reproduction success rate is measured in many different ways as organisms show different reproduction strategies. The penguins of this region show the strategy of completing their clutch. A clutch is a ground nest made by these penguins. A completed clutch has two eggs in them while an uncompleted clutch would have one or no eggs in the clutch. The liklehood of a completed clutch is determined by many variables. However, the variable that will be explored in this experiment is the species of the penguin. in this experiment, I will compare each of the penguin species to the percentage of completed clutches they have. This will be analyzed using exploratory data analysis.          
 
 ## Methods and Materials
 
+### Data Aquisition
+
 1. Data was taken from the Palmer Long Term Ecological Research (LTER) study area in Antarctica.
 
-2. The available dataset was downloaded into R studio
+2. The available datasets that were downloaded from their website were uploaded into R studio.
 
-3. Comparisons of body mass of each species was compared for each island.
+3. Associated packages were downloaded to run these datasets in Rstudio.
 
-4. The species and the number of penguins were compared.
+### Data Preparation
 
-5. The number of completed clutches and uncompleted clutches were examined for each species
+1. The body masses of each species was compared for each. island.
+
+2. The number of penguins for each species was determined.
+
+3. The number of completed clutches and uncompleted clutches were examined for each species.
+
+4. Significant differences between the differences in clutch completion for each species was analyzed. 
+

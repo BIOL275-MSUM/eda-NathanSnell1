@@ -1,4 +1,5 @@
 ##Downloading Packages
+
 library(tidyverse)
 library(ggplot2)
 install.packages("palmerpenguins")
@@ -37,7 +38,8 @@ number<-count(penguins_raw2, clutch_completion)
 number
 ##Graphs
 ggplot(data= penguins_raw2) +
- geom_jitter(mapping= aes(x= Island, y= body_mass, color= species))
+ geom_jitter(mapping= aes(x= Island, y= body_mass, color= species))+
+   labs(y= "Body Mass (g)")
 
 ggplot(data= penguins_raw2)+ 
        geom_bar(mapping = aes(color= clutch_completion, x= species))
@@ -46,6 +48,10 @@ ggplot(data= penguins_raw2)+
        geom_bar(mapping =aes(x= species))
 
 ggplot(data= penguins_raw2)+
-   geom_bar(mapping=aes(x= clutch_completion))+ 
-   fill("yes"= blue, "no"=red)
+   geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
+   labs(x= "Species", y= "Clutch Competion")+
+   theme(
+   axis.text=element_text(color= "black"),
+   axis.text.x= element_text(angle=10, hjust = 1))
+   
 
