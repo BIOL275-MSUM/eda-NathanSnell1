@@ -38,11 +38,10 @@ The Palmer Long-Term Ecological Research (LTER) study area is an area west of An
 ## Results
 
 ```{r}
+
 library(tidyverse)
 library(ggplot2)
-install.packages("palmerpenguins")
 
-remotes::install_github("allisonhorst/palmerpenguins")
 library(palmerpenguins)
 data(package = 'palmerpenguins')
 (penguins)
@@ -88,7 +87,7 @@ ggplot(data= penguins_raw2)+
 
 ```
 
-##
+## Discussion
 
 ## References
 
