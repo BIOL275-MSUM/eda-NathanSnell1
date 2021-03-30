@@ -70,9 +70,9 @@ exploratory data analysis.
 2.  The table’s labels were then renamed so that the dataset could be
     used to create graphs and charts without hassle.
 
-3.The body masses of each species was compared for each. island. This
-was done by graphing the body masses of each species compared to the
-individual islands.
+3.  The body masses of each species was compared for each. island. This
+    was done by graphing the body masses of each species compared to the
+    individual islands.
 
 4.  The number of penguins for each species was determined by creating a
     bar graph.
@@ -80,6 +80,9 @@ individual islands.
 5.  The number of completed clutches and uncompleted clutches were
     examined for each species. This was done by creating a stacked bar
     graph.
+
+6.  Body masses of each species were individually analyzed by the
+    frequency of their occurrence.
 
 ## Results
 
@@ -219,17 +222,6 @@ ggplot(data= penguins_raw2) +
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
-ggplot(data= penguins_raw2)+ 
-       geom_bar(mapping= aes(x= species))+
-   labs(y= "Frequency", x="Species")+
-   theme(
-      axis.text = element_text(color="black"),
-      axis.text.x = element_text(angle = 10, hjust = 1))
-```
-
-![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
-
-``` r
 ggplot(data= penguins_raw2)+
    geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
    labs(x= "Species", y= "Frequency", fill="Clutch Completion")+
@@ -238,7 +230,7 @@ ggplot(data= penguins_raw2)+
    axis.text.x= element_text(angle=10, hjust = 1))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
 
 ## Discussion
 
