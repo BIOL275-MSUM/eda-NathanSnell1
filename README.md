@@ -39,7 +39,7 @@ rate is measured in many different ways as organisms show different
 reproduction strategies. The penguins of this region show the strategy
 of completing their clutch. A clutch is a ground nest made by these
 penguins. A completed clutch has two eggs in them while an uncompleted
-clutch would have one or no eggs in the clutch. The liklehood of a
+clutch would have one or no eggs in the clutch. The likelihood of a
 completed clutch is determined by many variables. However, the variable
 that will be explored in this experiment is the species of the penguin.
 in this experiment, I will compare each of the penguin species to the
@@ -55,7 +55,7 @@ exploratory data analysis.
     packages on github (Horst, et al., 2020).
 
 2.  The available datasets packages found on github were uploaded into R
-    studio.
+    studio (RStudio Team, 2020)
 
 3.  Associated packages were downloaded to run these datasets in Rstudio
     (Wickham, 2020) (Wickham et al., 2021).
@@ -232,7 +232,7 @@ ggplot(data= penguins_raw2)+
 ``` r
 ggplot(data= penguins_raw2)+
    geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
-   labs(x= "Species", y= "Clutch Competion")+
+   labs(x= "Species", y= "Frequency", fill="Clutch Completion")+
    theme(
    axis.text=element_text(color= "black"),
    axis.text.x= element_text(angle=10, hjust = 1))
@@ -255,3 +255,6 @@ dplyr: A Grammar of Data Manipulation. R package version 1.0.3.
 
 H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
 New York, 2016.
+
+RStudio Team (2020). RStudio: Integrated Development Environment for R.
+RStudio, PBC, Boston, MA URL <http://www.rstudio.com/>.
