@@ -17,19 +17,90 @@ The Palmer Long-Term Ecological Research (LTER) study area is an area west of An
 
 ### Data Aquisition
 
-1. Data was taken from the Palmer Long Term Ecological Research (LTER) study area in Antarctica.
+1. Data was taken from the Palmer Long Term Ecological Research (LTER) study area in Antarctica. These Datasets were downloaded from given packages on github (Horst, et al., 2020).
 
-2. The available datasets that were downloaded from their website were uploaded into R studio.
+2. The available datasets packages found on github were uploaded into R studio.   
 
-3. Associated packages were downloaded to run these datasets in Rstudio.
+3. Associated packages were downloaded to run these datasets in Rstudio (Wickham, 2020) (Wickham et al., 2021). 
 
 ### Data Preparation
 
-1. The body masses of each species was compared for each. island.
+1. The Palmar Penguins datasets was converted into a table and run so all the observations and variables were present. The dataset known as "penguins_raw" was then used for the remainder of the experiment. 
 
-2. The number of penguins for each species was determined.
+2. The table's labels were then renamed so that the dataset could be used to create graphs and charts without hassle.
 
-3. The number of completed clutches and uncompleted clutches were examined for each species.
+3.The body masses of each species was compared for each. island. This was done by graphing the body masses of each species compared to the individual islands.
 
-4. Significant differences between the differences in clutch completion for each species was analyzed. 
+4. The number of penguins for each species was determined by creating a bar graph. 
 
+5. The number of completed clutches and uncompleted clutches were examined for each species. This was done by creating a stacked bar graph.
+
+## Results
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+install.packages("palmerpenguins")
+
+remotes::install_github("allisonhorst/palmerpenguins")
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+(penguins)
+(penguins_raw)
+
+penguins1 <-(penguins) 
+
+penguins_raw1<-(penguins_raw)
+
+penguins_raw1
+
+##Rename
+
+names(penguins_raw1)
+
+penguins_raw2 <-rename(penguins_raw1,
+       clutch_completion =`Clutch Completion`,
+       body_mass = `Body Mass (g)`,
+       species = Species)
+penguins_raw2
+```
+
+
+
+```{r}
+ggplot(data= penguins_raw2) +
+ geom_jitter(mapping= aes(x= Island, y= body_mass, color= species))+
+   labs(y= "Body Mass (g)")
+
+ggplot(data= penguins_raw2)+ 
+       geom_bar(mapping= aes(x= species))+
+   labs(y= "Frequency", x="Species")+
+   theme(
+      axis.text = element_text(color="black"),
+      axis.text.x = element_text(angle = 10, hjust = 1))
+
+ggplot(data= penguins_raw2)+
+   geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
+   labs(x= "Species", y= "Clutch Competion")+
+   theme(
+   axis.text=element_text(color= "black"),
+   axis.text.x= element_text(angle=10, hjust = 1))
+
+```
+
+##
+
+## References
+
+ Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
+#>   Archipelago (Antarctica) penguin data. R package version 0.1.0.
+#>   https://allisonhorst.github.io/palmerpenguins/. doi:
+#>   10.5281/zenodo.3960218.
+
+Hadley Wickham, Romain François, Lionel Henry and
+  Kirill Müller (2021). dplyr: A Grammar of Data
+  Manipulation. R package version 1.0.3.
+  https://CRAN.R-project.org/package=dplyr
+
+H. Wickham. ggplot2: Elegant Graphics for Data
+  Analysis. Springer-Verlag New York, 2016.

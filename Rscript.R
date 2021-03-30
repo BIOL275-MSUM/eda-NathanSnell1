@@ -45,13 +45,22 @@ ggplot(data= penguins_raw2)+
        geom_bar(mapping = aes(color= clutch_completion, x= species))
 
 ggplot(data= penguins_raw2)+ 
-       geom_bar(mapping =aes(x= species))
+       geom_bar(mapping= aes(x= species))+
+   labs(y= "Frequency", x="Species")+
+   theme(
+      axis.text = element_text(color="black"),
+      axis.text.x = element_text(angle = 10, hjust = 1))
 
 ggplot(data= penguins_raw2)+
    geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
-   labs(x= "Species", y= "Clutch Competion")+
+   labs(x= "Species", y= "Clutch Competion", fill= "Success")+
    theme(
    axis.text=element_text(color= "black"),
    axis.text.x= element_text(angle=10, hjust = 1))
-   
 
+## Citations
+
+citation("ggplot2")
+
+citation("dplyr")   
+RStudio.Version()
