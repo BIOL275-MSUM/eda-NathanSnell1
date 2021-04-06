@@ -27,10 +27,15 @@ The Palmer Long-Term Ecological Research (LTER) study area is an area
 west of Antarctica. It is one of the three existing research facilities
 that the United States has in order to analyze Antarctic marine
 ecosystems. These Antarctic marine ecosystems include sea ice habitats,
-oceanography, and bird nesting sites. One of the birds that were
-examined were the antarctic penguins found on three islands. The three
-species of penguins that were examined were the Adelie, Gentoo, and
-Chinstrap penguins. Different statistics of these penguins were taken
+oceanography, and bird nesting sites. One of the bird species that have
+been examined were the antarctic penguins found on three islands. The
+three species of penguins that were examined were the Adelie, Gentoo,
+and Chinstrap penguins. These penguins all occupy the islands of
+Antarctica and tend to stay on one island for the entire year where they
+hunt and breed. Chinstrap and Adelie penguins have similar weights and
+statures at roughly 10 pounds and 2 feet tall. However, Gentoo penguins
+are the third largest penguins which weigh 17 pounds and stand at 2 and
+a half to 3 feet tall. Different statistics of these penguins were taken
 for determination of age, size, island, sex, reproduction, and isotope
 concentration. Each of these statistics could be pulled from their
 website to be analyzed. Of the most interest to most scientists is the
@@ -40,11 +45,16 @@ reproduction strategies. The penguins of this region show the strategy
 of completing their clutch. A clutch is a ground nest made by these
 penguins. A completed clutch has two eggs in them while an uncompleted
 clutch would have one or no eggs in the clutch. The likelihood of a
-completed clutch is determined by many variables. However, the variable
-that will be explored in this experiment is the species of the penguin.
-in this experiment, I will compare each of the penguin species to the
-percentage of completed clutches they have. This will be analyzed using
-exploratory data analysis.
+completed clutch is determined by many variables. One such variable
+includes the size of the body mass of the penguin. Research shows that
+an organism that weighs more than their counterparts is shown to have a
+lower probability to survive and reproduce. This is because their
+metabolisms are slower causing them to pack on unwanted fat. This in
+turn makes the organism slower and less likely to avoid predators. The
+variables that will be explored in this experiment is the species and
+mass of the penguin. In this experiment, I will compare each of the
+penguin species to the percentage of completed clutches they have. This
+will be analyzed using exploratory data analysis.
 
 ## Methods and Materials
 
@@ -86,29 +96,6 @@ exploratory data analysis.
 
 ## Results
 
-``` r
-library(tidyverse)
-```
-
-    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
-
-    ## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.5     ✓ dplyr   1.0.3
-    ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-    ## ✓ readr   1.4.0     ✓ forcats 0.5.0
-
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
-
-``` r
-library(ggplot2)
-
-library(palmerpenguins)
-data(package = 'palmerpenguins')
-(penguins)
-```
-
     ## # A tibble: 344 x 8
     ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
     ##    <fct>   <fct>           <dbl>         <dbl>            <int>       <int>
@@ -124,10 +111,6 @@ data(package = 'palmerpenguins')
     ## 10 Adelie  Torge…           42            20.2              190        4250
     ## # … with 334 more rows, and 2 more variables: sex <fct>, year <int>
 
-``` r
-(penguins_raw)
-```
-
     ## # A tibble: 344 x 17
     ##    studyName `Sample Number` Species Region Island Stage `Individual ID`
     ##    <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
@@ -146,14 +129,6 @@ data(package = 'palmerpenguins')
     ## #   `Flipper Length (mm)` <dbl>, `Body Mass (g)` <dbl>, Sex <chr>, `Delta 15 N
     ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
 
-``` r
-penguins1 <-(penguins) 
-
-penguins_raw1<-(penguins_raw)
-
-penguins_raw1
-```
-
     ## # A tibble: 344 x 17
     ##    studyName `Sample Number` Species Region Island Stage `Individual ID`
     ##    <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
@@ -171,12 +146,6 @@ penguins_raw1
     ## #   Egg` <date>, `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>,
     ## #   `Flipper Length (mm)` <dbl>, `Body Mass (g)` <dbl>, Sex <chr>, `Delta 15 N
     ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
-
-``` r
-##Rename
-
-names(penguins_raw1)
-```
 
     ##  [1] "studyName"           "Sample Number"       "Species"            
     ##  [4] "Region"              "Island"              "Stage"              
@@ -184,14 +153,6 @@ names(penguins_raw1)
     ## [10] "Culmen Length (mm)"  "Culmen Depth (mm)"   "Flipper Length (mm)"
     ## [13] "Body Mass (g)"       "Sex"                 "Delta 15 N (o/oo)"  
     ## [16] "Delta 13 C (o/oo)"   "Comments"
-
-``` r
-penguins_raw2 <-rename(penguins_raw1,
-       clutch_completion =`Clutch Completion`,
-       body_mass = `Body Mass (g)`,
-       species = Species)
-penguins_raw2
-```
 
     ## # A tibble: 344 x 17
     ##    studyName `Sample Number` species Region Island Stage `Individual ID`
@@ -211,26 +172,61 @@ penguins_raw2
     ## #   `Flipper Length (mm)` <dbl>, body_mass <dbl>, Sex <chr>, `Delta 15 N
     ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
 
-``` r
-ggplot(data= penguins_raw2) +
- geom_jitter(mapping= aes(x= Island, y= body_mass, color= species))+
-   labs(y= "Body Mass (g)")
-```
+    ## # A tibble: 152 x 17
+    ##    studyName `Sample Number` species Region Island Stage `Individual ID`
+    ##    <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
+    ##  1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1           
+    ##  2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2           
+    ##  3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1           
+    ##  4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2           
+    ##  5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1           
+    ##  6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2           
+    ##  7 PAL0708                 7 Adelie… Anvers Torge… Adul… N4A1           
+    ##  8 PAL0708                 8 Adelie… Anvers Torge… Adul… N4A2           
+    ##  9 PAL0708                 9 Adelie… Anvers Torge… Adul… N5A1           
+    ## 10 PAL0708                10 Adelie… Anvers Torge… Adul… N5A2           
+    ## # … with 142 more rows, and 10 more variables: clutch_completion <chr>, `Date
+    ## #   Egg` <date>, `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>,
+    ## #   `Flipper Length (mm)` <dbl>, body_mass <dbl>, Sex <chr>, `Delta 15 N
+    ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
+    ## # A tibble: 68 x 17
+    ##    studyName `Sample Number` species Region Island Stage `Individual ID`
+    ##    <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
+    ##  1 PAL0708                 1 Chinst… Anvers Dream  Adul… N61A1          
+    ##  2 PAL0708                 2 Chinst… Anvers Dream  Adul… N61A2          
+    ##  3 PAL0708                 3 Chinst… Anvers Dream  Adul… N62A1          
+    ##  4 PAL0708                 4 Chinst… Anvers Dream  Adul… N62A2          
+    ##  5 PAL0708                 5 Chinst… Anvers Dream  Adul… N64A1          
+    ##  6 PAL0708                 6 Chinst… Anvers Dream  Adul… N64A2          
+    ##  7 PAL0708                 7 Chinst… Anvers Dream  Adul… N66A1          
+    ##  8 PAL0708                 8 Chinst… Anvers Dream  Adul… N66A2          
+    ##  9 PAL0708                 9 Chinst… Anvers Dream  Adul… N67A1          
+    ## 10 PAL0708                10 Chinst… Anvers Dream  Adul… N67A2          
+    ## # … with 58 more rows, and 10 more variables: clutch_completion <chr>, `Date
+    ## #   Egg` <date>, `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>,
+    ## #   `Flipper Length (mm)` <dbl>, body_mass <dbl>, Sex <chr>, `Delta 15 N
+    ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+    ## # A tibble: 124 x 17
+    ##    studyName `Sample Number` species Region Island Stage `Individual ID`
+    ##    <chr>               <dbl> <chr>   <chr>  <chr>  <chr> <chr>          
+    ##  1 PAL0708                 1 Gentoo… Anvers Biscoe Adul… N31A1          
+    ##  2 PAL0708                 2 Gentoo… Anvers Biscoe Adul… N31A2          
+    ##  3 PAL0708                 3 Gentoo… Anvers Biscoe Adul… N32A1          
+    ##  4 PAL0708                 4 Gentoo… Anvers Biscoe Adul… N32A2          
+    ##  5 PAL0708                 5 Gentoo… Anvers Biscoe Adul… N33A1          
+    ##  6 PAL0708                 6 Gentoo… Anvers Biscoe Adul… N33A2          
+    ##  7 PAL0708                 7 Gentoo… Anvers Biscoe Adul… N34A1          
+    ##  8 PAL0708                 8 Gentoo… Anvers Biscoe Adul… N34A2          
+    ##  9 PAL0708                 9 Gentoo… Anvers Biscoe Adul… N35A1          
+    ## 10 PAL0708                10 Gentoo… Anvers Biscoe Adul… N35A2          
+    ## # … with 114 more rows, and 10 more variables: clutch_completion <chr>, `Date
+    ## #   Egg` <date>, `Culmen Length (mm)` <dbl>, `Culmen Depth (mm)` <dbl>,
+    ## #   `Flipper Length (mm)` <dbl>, body_mass <dbl>, Sex <chr>, `Delta 15 N
+    ## #   (o/oo)` <dbl>, `Delta 13 C (o/oo)` <dbl>, Comments <chr>
 
-``` r
-ggplot(data= penguins_raw2)+
-   geom_bar(mapping=aes(x= species, fill= clutch_completion ))+
-   labs(x= "Species", y= "Frequency", fill="Clutch Completion")+
-   theme(
-   axis.text=element_text(color= "black"),
-   axis.text.x= element_text(angle=10, hjust = 1))
-```
-
-![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-2-4.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-2-5.png)<!-- -->
 
 ## Discussion
 
