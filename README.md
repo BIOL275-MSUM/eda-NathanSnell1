@@ -267,8 +267,11 @@ because females don’t select males on body mass alone. Therefore, it
 should be expected for organisms that the correlation between body mass
 and reproductive success is not one dimensional. That means other
 factors would have a major impact on the reproductive success of
-organisms. I would expand upon this experiment by taking more experiment
-subjects of each penguin species and tracking them over multiple years.
+organisms. I would expand upon this experiment in one of two ways. I
+would look at the sex of the penguins and determine if body mass is
+correlated to the reproductive success of a male or female penguin. I
+would also expand upon this by taking more experiment subjects of each
+penguin species on multiple islands and record data on them for 5 years.
 
 ## References
 
