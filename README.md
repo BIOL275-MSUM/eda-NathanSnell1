@@ -1,7 +1,16 @@
-Palmer Penguins
-================
+
+-----
+
+## output: github\_document
+
+<img src="https://www2.mnstate.edu/uploadedImages/Content/Marketing/logos/MSUM_Signature_Vert_Color.jpg" alt="MSUM logo" width="200" style="float:right">
+
+# A Correlational Study of Penguin Mass and Clutch Completion
+
 Nathan Snell
-3/9/2021
+
+Biosciences Department, Minnesota State University Moorhead, 1104 7th
+Avenue South, Moorhead, MN 56563 USA
 
 ## Abstract
 
@@ -30,7 +39,8 @@ ecosystems. These Antarctic marine ecosystems include sea ice habitats,
 oceanography, and bird nesting sites. One of the bird species that have
 been examined were the antarctic penguins found on three islands. The
 three species of penguins that were examined were the Adelie, Gentoo,
-and Chinstrap penguins. These penguins all occupy the islands of
+and Chinstrap penguins which make up over half of the avian life in
+Antarctica (Ancel, 2013). These penguins all occupy the islands of
 Antarctica and tend to stay on one island for the entire year where they
 hunt and breed. Chinstrap and Adelie penguins have similar weights and
 statures at roughly 10 pounds and 2 feet tall. However, Gentoo penguins
@@ -41,20 +51,28 @@ concentration. Each of these statistics could be pulled from their
 website to be analyzed. Of the most interest to most scientists is the
 result of how well a species can reproduce. The reproduction success
 rate is measured in many different ways as organisms show different
-reproduction strategies. The penguins of this region show the strategy
-of completing their clutch. A clutch is a ground nest made by these
-penguins. A completed clutch has two eggs in them while an uncompleted
-clutch would have one or no eggs in the clutch. The likelihood of a
-completed clutch is determined by many variables. One such variable
-includes the size of the body mass of the penguin. Research shows that
-an organism that weighs more than their counterparts is shown to have a
-lower probability to survive and reproduce. This is because their
-metabolisms are slower causing them to pack on unwanted fat. This in
-turn makes the organism slower and less likely to avoid predators. The
-variables that will be explored in this experiment is the species and
-mass of the penguin. In this experiment, I will compare each of the
-penguin species to the percentage of completed clutches they have. This
-will be analyzed using exploratory data analysis.
+reproduction strategies. Birds employ a strategy of laying eggs then
+caring for their young until they can leave the nest. These nests are
+known as clutches and vary in size according to the species of bird and
+where the bird is located. For the penguins under research, completed
+clutch has two eggs in them while an uncompleted clutch would have one
+or no eggs in the clutch. The likelihood of a completed clutch is
+determined by many variables including climate, food availability, and
+competition (Enrich, 1988). One such variable includes the size of the
+body mass of the penguin. Research shows that an organism that weighs
+more than their counterparts is shown to have a higher probability to
+survive and reproduce. This is because the reproductive process is
+metabolically taxing and once it is over these organisms have lost their
+fat stores. This means that those who have greater fat stores are more
+likely to have the energy to find food after reproducing. This improves
+the odds of that organism surviving and reproducing again (Hansen,
+2013). It is for this reason the variables that will be explored in this
+experiment is the species and mass of the penguin. In this experiment, I
+will compare each of the penguin species to the percentage of completed
+clutches they have. My hypothesis is that there will be no significant
+difference between the mass distribution of the penguins and the
+percentage of incompleted clutch size. This will be analyzed using
+exploratory data analysis.
 
 ## Methods and Materials
 
@@ -95,6 +113,11 @@ will be analyzed using exploratory data analysis.
     frequency of their occurrence.
 
 ## Results
+
+The results show that all three penguin species have a distribution that
+follows a normal curve. If we look at the clutch completion of each
+species, we see that the Gentoo penguin also has the highest proportion
+of incomplete clutches compared to the other two penguin species.
 
     ## # A tibble: 344 x 8
     ##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
@@ -230,7 +253,37 @@ will be analyzed using exploratory data analysis.
 
 ## Discussion
 
+The results showed the highest proportion of incomplete clutches of all
+the penguin species. However, all three of the penguin species showed a
+normal distribution with no significant differences in the distribution.
+Therefore, there is no correlation between the mass of a penguin and the
+completion percentage of a clutch. When research is conducted on the
+deviations of body masses in a species, we find that the correlation
+between mass and reproduction is inconclusive. A study done on moles
+showed that there is a positive correlation to increased body mass and
+reproductive success for females. However, there is no correlation in
+body mass and reproductive success for males (Boratyński, 2010). This is
+because females don’t select males on body mass alone. Therefore, it
+should be expected for organisms that the correlation between body mass
+and reproductive success is not one dimensional. That means other
+factors would have a major impact on the reproductive success of
+organisms. I would expand upon this experiment by taking more experiment
+subjects of each penguin species and tracking them over multiple years.
+
 ## References
+
+Ancel, A., Beaulieu, M., Gilbert, C (2013). The Different Breeding
+Strategies of Penguins: A Review. Comptes Rendus Biologies, No Longer
+Published by Elsevier
+www.sciencedirect.com/science/article/pii/S1631069113000097.
+
+Boratyński, Z., & Koteja, P. (2010). Sexual and natural selection on
+body mass and metabolic rates in free-living bank voles. Functional
+Ecology, 24(6), 1252-1261. Retrieved April 19, 2021, from
+<http://www.jstor.org/stable/40963556>
+
+Ehrlich, P., Dobkin, D., Wheye, D (1988). Variation in Clutch Sizes
+web.stanford.edu/group/stanfordbirds/text/essays/Variation\_in\_Clutch.html.
 
 Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer \#\>
 Archipelago (Antarctica) penguin data. R package version 0.1.0. \#\>
@@ -240,6 +293,11 @@ Archipelago (Antarctica) penguin data. R package version 0.1.0. \#\>
 Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2021).
 dplyr: A Grammar of Data Manipulation. R package version 1.0.3.
 <https://CRAN.R-project.org/package=dplyr>
+
+Hansen, M., Flatt, T., Aguilaniu, H (2013). Reproduction, Fat
+Metabolism, and Life Span: What Is the Connection? Cell Metabolism. Cell
+Press,
+<https://www.sciencedirect.com/science/article/pii/S1550413112004949>
 
 H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
 New York, 2016.
